@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <title>Upload Attendance</title>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1 mx-auto"><a class="nav-link" href="{% url "index" %}">IbAS</a></span>
+        </div>
+    </nav>
+
+    <h2 style="margin-left:30px;">Upload Attendance</h2>
+
+    <form action="{% url "upload_attendance" %}" method="post" enctype='multipart/form-data' class="form"> {% csrf_token %}
+        <!-- <label for="">Year</label>
+        <input type="text" name="year">
+        <label for="">Divison</label>
+        <input type="text" name="division">
+        <label for="">Subject</label>
+        <input type="text" name="subject">
+        <label for="">Date</label>
+        <input type="date" name="date" id="">
+        <label for="">Upload Image</label>
+        <input type="file" name="attendance_image" accept="image/*" onchange="loadFile(event)">
+        <input type="submit" value="Submit"> -->
+
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <label class="mb-2" for="">Year</label>
+                        <select name="year" class="col form-select mb-2" aria-label="Default select example">
+                            <option selected>Year</option>
+                            <option value="FE">FE</option>
+                            <option value="SE">SE</option>
+                            <option value="TE">TE</option>
+                            <option value="BE">BE</option>
+                        </select>
+            
+                        <label class="mb-2" for="">Division</label>
+                        <select name="division" class="col form-select mb-4" aria-label="Default select example">
+                            <option selected>Division</option>
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="C">C</option>
+                        </select>
+            
+                        <label class="mb-2" or="">Subject</label>
+                        <div class="col mb-2">
+                            <input name="subject" type="text" class="form-control" placeholder="Subject"
+                                aria-label="First name">
+                        </div>
+            
+                        <label class="mb-2" for="">Date</label>
+                        <div class="col mb-2">
+                            <input name="date" type="date" class="form-control" placeholder="Date" aria-label="Last name">
+                        </div>
+            
+                        <label class="mb-2" for="">Upload Image</label>
+                        <div class="col mb-2">
+                            <input type="file" name="attendance_image" accept="image/*" onchange="loadFile(event)" class="form-control" placeholder="Roll Number"
+                                aria-label="First name">
+                        </div>  
+            
+                        <input type="submit" name="image" class="btn btn-primary" value="Submit"> 
+                        <input name="webcam" style="margin-top: 20px;"  type="submit" class="btn btn-primary" value="Use Webcam">
+                    </div>
+                </div>
+                <div class="col">
+                    <img id="output" width="750px" height="auto" />
+                </div>
+              </div>
+        </div>
+
+        
+
+    </form>
+    <!-- <center>
+        <p><img id="output" width="750px" height="auto" /></p>
+    </center> -->
+
+<script>
+var loadFile = function(event) {
+	var image = document.getElementById('output');
+	image.src = URL.createObjectURL(event.target.files[0]);
+};
+</script>
+</body>
+</html>

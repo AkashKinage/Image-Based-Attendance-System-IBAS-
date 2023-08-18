@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <title>View Attendance</title>
+    <style>
+        .inp{
+            display: flex;
+            justify-content: center;
+        }
+        label{
+            margin-left: 10px;
+        }
+        input,select{
+            margin-left: 10px;
+        }
+        table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+}
+.a{
+    margin-left: 30px;
+}
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1 mx-auto"><a class="nav-link" href="{% url "index" %}">IbAS</a></span>
+        </div>
+    </nav>
+
+    <h2 style="margin-left:30px;">View Attendance</h2>
+
+    <form action="{% url "view_attendance" %}" method="post" class="form"> {% csrf_token %}
+        <div class="inp">
+            <label for="">Year</label>
+            <!-- <input type="text" name="year" id=""> -->
+            <select name="year">
+                <option selected>Year</option>
+                <option value="FE">FE</option>
+                <option value="SE">SE</option>
+                <option value="TE">TE</option>
+                <option value="BE">BE</option>
+            </select>
+
+            <label for="">Division</label>
+            <!-- <input type="text" name="division" id=""> -->
+            <select name="division">
+                <option selected>Division</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+            </select>
+
+            <label for="">Date</label>
+            <input type="date" name="date" id="">
+
+            <label for="">Subject</label>
+            <input type="text" name="subject" id="">
+
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+    <br><br>
+    <div class="a">
+        {% for student in students_present %}
+        <h3>Students present on {{student.date}} for {{student.subject}} are:</h3>
+        <table style="width: 30%;">
+            <tr style="margin: 20px;">
+                <th>Roll Number</th>
+                <th>Name</th>
+            </tr>
+            <tr>
+                <td>{{ student.roll_no }}</td>
+                <td>{{ student.full_name }}</td>
+            </tr>
+        </table>
+        {% endfor %}
+    </div>
+</body>
+
+</html>

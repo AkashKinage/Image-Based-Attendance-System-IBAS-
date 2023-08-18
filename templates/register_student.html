@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <title>Register Student</title>
+</head>
+
+<body>
+    {% load bootstrap3 %}
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1 mx-auto"><a class="nav-link" href="{% url "index" %}">IbAS</a></span>
+        </div>
+    </nav>
+
+    <h2 style="margin-left:30px;">Register Student</h2>
+    <form action="{% url "register_student" %}" method="post" class="form"> {% csrf_token %}
+        <!-- <label for="">First Name</label>
+        <input type="text" name="first_name" id=""> <br>
+
+        <label for="">Last Name</label>
+        <input type="text" name="last_name" id=""> <br>
+
+        <label for="">Roll Number</label>
+        <input type="text" name="roll_no" id=""> <br>
+
+        <label for="">Department</label> <br>
+        <input type="radio" name="department" id="" value="Computer Engineering">Computer Engineering <br>
+        <input type="radio" name="department" id="" value="Information Technology">Information Technology <br>
+
+        <label for="">Year</label>
+        <input type="text" name="year" id=""> <br>
+
+        <label for="">Division</label>
+        <input type="text" name="division" id=""> <br> -->
+
+        <div class="col w-25 p-3" style="margin-left: 100px;">
+            <label class="mb-2" or="">First Name</label>
+            <div class="row mb-2">
+                <input name="first_name" type="text" class="form-control" placeholder="First name"
+                    aria-label="First name">
+            </div>
+
+            <label class="mb-2" for="">Last Name</label>
+            <div class="row mb-2">
+                <input name="last_name" type="text" class="form-control" placeholder="Last name" aria-label="Last name">
+            </div>
+
+            <label class="mb-2" for="">Roll Number</label>
+            <div class="row mb-2">
+                <input name="roll_no" type="number" class="form-control" placeholder="Roll Number"
+                    aria-label="First name">
+            </div>
+
+            <label class="mb-2" for="">Department</label> <br>
+            <select name="department" class="form-select mb-2" aria-label="Default select example">
+                <option selected>Department</option>
+                <option value="Computer Engineering">Computer Engineering</option>
+                <option value="Information Technology">Information Technology</option>
+            </select>
+
+            <label class="mb-2" for="">Year</label>
+            <select name="year" class="form-select mb-2" aria-label="Default select example">
+                <option selected>Year</option>
+                <option value="FE">FE</option>
+                <option value="SE">SE</option>
+                <option value="TE">TE</option>
+                <option value="BE">BE</option>
+            </select>
+
+            <label class="mb-2" for="">Division</label>
+            <select name="division" class="form-select mb-4" aria-label="Default select example">
+                <option selected>Division</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+            </select>
+
+            <input type="submit" class="btn btn-primary" value="Submit">
+        </div>
+
+
+    </form>
+</body>
+
+</html>

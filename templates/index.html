@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <title>Image based Attendance</title>
+    <style>
+        .buttons{
+            margin-left: 5%;
+        }
+        .buttons button {
+            background-color: #48abe0;
+            color: white;
+            border: none;
+            padding: 5px;
+            font-size: 31px;
+            height: 230px;
+            width: 230px;
+            box-shadow: 0 2px 4px darkslategray;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin: 20px;
+        }
+
+        .buttons button:active {
+            background-color: #48abe0;
+            box-shadow: 0 0 2px darkslategray;
+            transform: translateY(2px);
+        }
+
+        .round-6 {
+            border-radius: 10%;
+        }
+
+        a{
+            color: white;
+            text-decoration: none !important; 
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1 mx-auto"><a class="nav-link" href="{% url "index" %}">IbAS</a></span>
+        </div>
+    </nav>
+
+    <div class="buttons">
+        <button class="round-6"><a href="{% url "register_student" %}">Register Student</a></button>
+        <button class="round-6"><a href="{% url "search_student" %}">Register Student Faces</a></button>
+        <button class="round-6"><a href="{% url "train_model" %}">Train Model</a></button>
+        <button class="round-6"><a href="{% url "upload_attendance" %}">Upload Attendance</a></button>
+        <button class="round-6"><a href="{% url "view_attendance" %}">View Attendance</a></button>
+    </div>
+</body>
+
+</html>
